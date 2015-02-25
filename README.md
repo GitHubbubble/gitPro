@@ -10,8 +10,8 @@
 This tutorial will show you how to create a patch from your recent commits in your repository. And then, it will also show you how to apply this patch to another repository correctly.
 
 Just a reminder, if your want to develop the previous work in the repo, do it in a separate branch!
-
 Now, let's start!
+
 ## Patch
 ### Create patch with git diff
 First, let's clone a repo and make some change:
@@ -42,7 +42,7 @@ Your branch is up-to-date with 'origin/master'.
 $ ls
 README.md patch
 ```
-Now we are at the branch ```master``` and get a file named ```patch```, which contains the diff information. Now we'll use ```git apply``` to ultilize this patch. In fact, we hardly create a patch at the branch and apply it in another branch (you can simply ```merge``` it). Now we assume the branch ```fix_empty_README.md``` doesn't exist. Normally, we are supposed to create a branch to handler the branches which commit new patches.
+Now we are at the branch ```master``` and get a file named ```patch```, which contains the diff information. Now we'll use ```git apply``` to ultilize this patch. In fact, we barely create a patch at the branch and apply it in another branch (you can simply ```merge``` it). Now we assume the branch ```fix_empty_README.md``` doesn't exist. Normally, we are supposed to create a branch to handler the branches which commit new patches.
 ```
 $ git checkout -b PATCH
 Switched to a new branch 'PATCH'
@@ -51,7 +51,7 @@ $ git commit -a -m "Patch Apply"
 [PATCH 15695e4] Patch Apply
  1 file changed, 1 insertion(+)
 ```
-Now the ```patch``` has been applied to  the branch ```PATCH```, we can use ```git diff``` to check the difference between the branch of ```PATCH``` and ```fix_empty_README.md```, they will be totally same.
+Now the ```patch``` has been applied to  the branch ```PATCH```, we can use ```git diff``` to check the differences between the branch of ```PATCH``` and ```fix_empty_README.md```, they will be absolutely same.
 
 
 ### Create patch with git-format-patch
@@ -115,7 +115,7 @@ index fe8efa4..544f799 100644
 -- 
 1.9.3 (Apple Git-50)
 ```
-This time, more information are offered! We can tell the when and who submitted it, etc.
+This time, more information are offered! We can tell when and who submitted it, etc.
 
 For the patch created by ```git-format-patch```, we have to use ```am``` to apply it.
 ```
