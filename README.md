@@ -54,7 +54,7 @@ $ git commit -a -m "Patch Apply"
 Now the ```patch``` has been applied to  the branch ```PATCH```, we can use ```git diff``` to check the differences between the branch of ```PATCH``` and ```fix_empty_README.md```, they will be absolutely same.
 
 
-### Create patch with git-format-patch
+### Create patch with git format patch
 
 This time, we will create the ```patch file``` with ```git-format-patch```.
 ```
