@@ -47,30 +47,83 @@ $ git commit -a -m "Patch Apply"
 Now the ```patch``` has been applied to  the branch ```PATCH```, we can use ```git diff``` to check the difference between the branch of ```PATCH``` and ```fix_empty_README.md```, they will be totally same.
 
 
+## Create patch with git-format-patch
 
+This time, we will create the ```patch file``` with ```git-format-patch```.
+```
+$ git checkout fix_empty_README.md
+Switched to branch 'fix_empty_README.md'
+$ echo "One more line" >> README.md
+$ cat README.md 
+# example-repo
+Add a new line in READMEgit checkout -b fix_empty_README.md!
+One more line
+$ git commit -a -m "one more line"
+[fix_empty_README.md 21641f7] one more line
+ 1 file changed, 1 insertion(+)
+$ git format-patch -M master
+0001-Add-a-new-line.patch
+0002-one-more-line.patch
+```
+the option ```-M``` shows the branch to compare with, now there is two files for ```patch```, let's check it:
+```
+$ cat 0001-Add-a-new-line.patch 
+From eb93f969ccc476a2a0050e9ee192216cf282da16 Mon Sep 17 00:00:00 2001
+From: jinhangwang <jinhangwang001@gmail.com>
+Date: Wed, 25 Feb 2015 11:28:56 -0800
+Subject: [PATCH 1/2] Add a new line
 
+---
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
 
+diff --git a/README.md b/README.md
+index 869ef75..fe8efa4 100644
+--- a/README.md
++++ b/README.md
+@@ -1 +1,2 @@
+ # example-repo
++Add a new line in READMEgit checkout -b fix_empty_README.md!
+-- 
+1.9.3 (Apple Git-50)
 
+$ cat 0002-one-more-line.patch 
+From 21641f7b1eee992896ed814bcd34a5c72047987f Mon Sep 17 00:00:00 2001
+From: jinhangwang <jinhangwang001@gmail.com>
+Date: Wed, 25 Feb 2015 11:59:17 -0800
+Subject: [PATCH 2/2] one more line
 
+---
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
 
+diff --git a/README.md b/README.md
+index fe8efa4..544f799 100644
+--- a/README.md
++++ b/README.md
+@@ -1,2 +1,3 @@
+ # example-repo
+ Add a new line in READMEgit checkout -b fix_empty_README.md!
++One more line
+-- 
+1.9.3 (Apple Git-50)
+```
+This time, more information are offered! We can tell the when and who submitted it, etc.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+For the patch created by ```git-format-patch```, we have to use ```am``` to apply it.
+```
+$ git checkout PATCH
+Switched to branch 'PATCH'
+$ git am 0002-one-more-line.
+Applying: one more line
+$ git commit -a -m "PATCH-0002 apply"
+```
+Then we can check README.md to see if the new line has been added:
+```
+$ cat README.md
+# example-repo
+Add a new line in READMEgit checkout -b fix_empty_README.md!
+One more line
+```
+Attention, if there are sever commits between master and fix, it will create patch file for every commit.
 
