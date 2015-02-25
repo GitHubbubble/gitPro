@@ -3,10 +3,11 @@
 This tutorial will show you how to create a patch from your recent commits in your repository. And then, it will also show you how to apply this patch to another repository correctly.
 
 Just a reminder, if your want to develop the previous work in the repo, do it in a separate branch!
-Then, let's start!
 
+Now, let's start!
 
-Now, let's clone a repo and make some change:
+## Create patch with git diff
+First, let's clone a repo and make some change:
 ```
 $ git clone https://github.com/jinhangwang/example-repo.git
 $ git checkout -b fix_empty_README.md
@@ -36,8 +37,14 @@ README.md patch
 ```
 Now we are at the branch ```master``` and get a file named ```patch```, which contains the diff information. Now we'll use ```git apply``` to ultilize this patch. In fact, we hardly create a patch at the branch and apply it in another branch (you can simply ```merge``` it). Now we assume the branch ```fix_empty_README.md``` doesn't exist. Normally, we are supposed to create a branch to handler the branches which commit new patches.
 ```
-$ 
-$ 
+$ git checkout -b PATCH
+Switched to a new branch 'PATCH'
+$ git apply patch
+$ git commit -a -m "Patch Apply"
+[PATCH 15695e4] Patch Apply
+ 1 file changed, 1 insertion(+)
+```
+Now the ```patch``` has been applied to  the branch ```PATCH```, we can use ```git diff``` to check the difference between the branch of ```PATCH``` and ```fix_empty_README.md```, they will be totally same.
 
 
 
