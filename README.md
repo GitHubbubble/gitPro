@@ -39,7 +39,7 @@ index 869ef75..fe8efa4 100644
 +++ b/README.md
 @@ -1 +1,2 @@
  # example-repo
-+Add a new line in READMEgit checkout -b fix_empty_README.md!
++Add a new line in README!!!
 ```
 The result of ```git diff``` is a typical output of ```Diff Patch```,
 we can use this output as a patch directly:
