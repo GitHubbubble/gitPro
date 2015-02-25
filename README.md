@@ -15,7 +15,11 @@
 
 
 ## Purpose
-This tutorial will show you how to create a patch from your recent commits in your repository. And then, it will also show you how to apply this patch to another repository correctly.
+This tutorial will show you
+* how to create a patch from your recent commits in your repository
+* how to apply such patch to another repository correctly
+* how to rebase your repo
+* 
 
 Just a reminder, if your want to develop the previous work in the repo, do it in a separate branch!
 Now, let's start!
