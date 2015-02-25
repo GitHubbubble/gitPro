@@ -1,8 +1,10 @@
 # git-patch-and-rebase
-[Purpose](## purpose)
-[Patch](## Patch)
-    * [Create patch with git diff](### Create patch with git diff)
-    * [Create patch with git format patch](### Create patch with git format patch)
+
+[Purpose](##purpose)
+
+[Patch](##Patch)
+* [Create patch with git diff](###Create patch with git diff)
+* [Create patch with git format patch](###Create patch with git format patch)
 
 ## Purpose
 This tutorial will show you how to create a patch from your recent commits in your repository. And then, it will also show you how to apply this patch to another repository correctly.
