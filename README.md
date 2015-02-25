@@ -1,17 +1,17 @@
 # git-patch-and-rebase
-[Purpose](#purpose)
-[Patch]
-    * [Create patch with git diff](## Create patch with git diff)
-    * [## Create patch with git format patch](## Create patch with git format patch)
+[Purpose](## purpose)
+[Patch](## Patch)
+    * [Create patch with git diff](### Create patch with git diff)
+    * [Create patch with git format patch](### Create patch with git format patch)
 
-##Purpose
+## Purpose
 This tutorial will show you how to create a patch from your recent commits in your repository. And then, it will also show you how to apply this patch to another repository correctly.
 
 Just a reminder, if your want to develop the previous work in the repo, do it in a separate branch!
 
 Now, let's start!
-
-## Create patch with git diff
+## Patch
+### Create patch with git diff
 First, let's clone a repo and make some change:
 ```
 $ git clone https://github.com/jinhangwang/example-repo.git
@@ -52,7 +52,7 @@ $ git commit -a -m "Patch Apply"
 Now the ```patch``` has been applied to  the branch ```PATCH```, we can use ```git diff``` to check the difference between the branch of ```PATCH``` and ```fix_empty_README.md```, they will be totally same.
 
 
-## Create patch with git-format-patch
+### Create patch with git-format-patch
 
 This time, we will create the ```patch file``` with ```git-format-patch```.
 ```
