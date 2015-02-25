@@ -41,8 +41,7 @@ index 869ef75..fe8efa4 100644
  # example-repo
 +Add a new line in README!!!
 ```
-The result of ```git diff``` is a typical output of ```Diff Patch```,
-we can use this output as a patch directly:
+The output of ```git diff``` is a typical patch file, we can use this output as a patch directly:
 ```
 $ git commit -a -m "Add a new line"
 [fix_empty_README.md eb93f96] Add a new line
