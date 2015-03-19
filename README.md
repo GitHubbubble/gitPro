@@ -153,7 +153,7 @@ Assuming that we creat a branch 'mywork' on your remote branch 'master'.
 $git checkout -b mywork origin
 ```
 
-After switch to it you make some change 
+After switch to it we can make some change 
 
 ```
 $touch file
@@ -169,9 +169,9 @@ $git checkout mywork
 $git rebase origin
 ```
 
-This command will save all your commits in 'mywork' under a directory '.git/rebase' in patch format. When you updated origin to "already up-to-date" the patch will patch back to new 'mywork' without leaving merge commits.
+This command will save all your commits in 'mywork' under a directory '.git/rebase' in patch format. When we updated origin to "already up-to-date" the patch will patch back to new 'mywork' without leaving merge commits.
 
-Once your 'mywork' point to a new commit, the old one will be through away. If you run 
+Once 'mywork' point to a new commit, the old one will be through away. If you run 
 ```
 $git gc
 ```
@@ -182,7 +182,7 @@ If the rebase process find a conflict, after you fix the conflict, use git add a
 $git rebase --continue
 ```
 
-or you want to back to status before rebase, run
+or if we want to back to status before rebase, run
 ```
 $git rebase --abort
 ```
@@ -218,12 +218,12 @@ pick c264051 Revert "added file_size" - not implemented correctly
 #
 ```
 
-That is to say, you have five commits and every one follow this format:
+That is to say, we have five commits and every one follow this format:
 ```
 [action][partial-sha][short commit message]
 ```
 
-Now you can change the action (which is 'pick' in default) to 'edit', 'squash' or delete the line that you dont want to push. When you quit the edit mode, git will apply the new commits.
+Now you can change the action (which is 'pick' in default) to 'edit', 'squash' or delete the line that you don't want to push. When you quit the edit mode, git will apply the new commits.
 
 
 
