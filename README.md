@@ -119,7 +119,7 @@ index fe8efa4..544f799 100644
 -- 
 1.9.3 (Apple Git-50)
 ```
-This time, more information are offered! We can tell when and who submitted it, etc.
+This time, more information is offered! We can tell when and who submitted it, etc.
 
 For the patch created by ```git-format-patch```, we have to use ```am``` to apply it.
 ```
