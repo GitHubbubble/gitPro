@@ -273,7 +273,7 @@ $git stash list
 stash@{0}: WIP on book: 51bea1d... fixed images
 stash@{1}: WIP on master: 9705ae6... changed the browse code to the official repo
 ```
-You also can use this command to go back to the stash you want:
+You can also use this command to go back to the stash you want:
 ```
 $git stash apply stash@{1}
 ```
