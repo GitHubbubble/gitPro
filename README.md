@@ -48,7 +48,8 @@ index 869ef75..fe8efa4 100644
  # example-repo
 +Add a new line in README!!!
 ```
-The output of ```git diff``` is a typical patch file, we can use this output as a patch directly:
+The output of ```git diff``` is a typical patch file, we can redirect the output of command ```git diff```
+to a file named patch, and the file patch will be a magic file to update your repo in the next step.
 ```
 $ git commit -a -m "Add a new line"
 [fix_empty_README.md eb93f96] Add a new line
@@ -60,7 +61,7 @@ Your branch is up-to-date with 'origin/master'.
 $ ls
 README.md patch
 ```
-Now we are at the branch ```master``` and get a file named ```patch```, which contains the diff information. Now we'll use ```git apply``` to ultilize this patch. In fact, we barely create a patch at the branch and apply it in another branch (you can simply ```merge``` it). Now we assume the branch ```fix_empty_README.md``` doesn't exist. Normally, we are supposed to create a branch to handler the branches which commit new patches.
+Now we are at the branch ```master``` and get the file ```patch``` which contains the diff information. We'll use ```git apply``` to utilize this patch. In fact, we barely create a patch at the branch and apply it in another branch (you can simply ```merge``` it). Now we assume the branch ```fix_empty_README.md``` doesn't exist. Normally, we are supposed to create a branch to handle the branches which commit new patches.
 ```
 $ git checkout -b PATCH
 Switched to a new branch 'PATCH'
@@ -74,7 +75,7 @@ Now the ```patch``` has been applied to  the branch ```PATCH```, we can use ```g
 
 ###Create patch with git format patch
 
-This time, we will create the ```patch file``` with ```git-format-patch```.
+This time, we will create the file ```patch``` with ```git-format-patch``` as below:
 ```
 $ git checkout fix_empty_README.md
 Switched to branch 'fix_empty_README.md'
@@ -150,7 +151,7 @@ $ cat README.md
 Add a new line in READMEgit checkout -b fix_empty_README.md!
 One more line
 ```
-Attention, if there are sever commits between master and fix, it will create patch file for every commit.
+Attention, if there are several commits between master and fix, it will create patch file for every commit.
 
 ###difference between git diff and git format patch
 ===
