@@ -230,7 +230,7 @@ Now you can change the action (which is 'pick' in default) to 'edit', 'squash' o
 ##The Perils of Rebasing
 Ahh, but the bliss of rebasing isn't without its drawbacks, which can be summed up in a single line:
 
-####Do not rebase commits that exist outside your repository.
+**Do not rebase commits that exist outside your repository.**
 
 If you follow our guideline, you'll be fine. If you don't, people will hate you, and you'll be scorned by friends and family.
 
