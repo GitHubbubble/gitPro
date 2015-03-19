@@ -229,7 +229,9 @@ Now you can change the action (which is 'pick' in default) to 'edit', 'squash' o
 
 ##The Perils of Rebasing
 Ahh, but the bliss of rebasing isn't without its drawbacks, which can be summed up in a single line:
+
 **do not rebase commits that exist outside your repository.**
+
 If you follow our guideline, you'll be fine. If you don't, people will hate you, and you'll be scorned by friends and family.
 
 When you rebase stuff, you’re abandoning existing commits and creating new ones that are similar but different. If you push commits somewhere and others pull them down and base work on them, and then you rewrite those commits with```git rebase``` and push them up again, your collaborators will have to re-merge their work and things will get messy when you try to pull their work back into yours.
