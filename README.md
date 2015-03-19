@@ -152,8 +152,6 @@ One more line
 ```
 Attention, if there are several commits between master and fix, it will create patch file for every commit.
 
-===
-
 
 
 
