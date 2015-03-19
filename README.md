@@ -163,7 +163,7 @@ $git commit -m "add file"
 
 On the same time  your colleague have pulled two requests to origin branch ,which means the 'master' and 'mywork'  will have conflict on each other. It is similiar to the 'Merge conflict' you have encountered in lab1.
 
-But merge will creat a new merge commit on 'master' which you dont want to commit. You want to keep the commits on the 'mywork' branch without merge, then you can use git rebase:
+But merge will creat a new merge commit on 'master' which you don't want to commit. You want to keep the commits on the 'mywork' branch without merge, then you can use git rebase:
 ```
 $git checkout mywork
 $git rebase origin
@@ -243,7 +243,7 @@ Let’s look at an example of how rebasing work that you’ve made public can ca
 
 #Stashing
 
-When you find a bug that is obvious but small enough, like```cout<<"nama="<<endl;```, you may become crazy if you don''t fix it before continuing your former work. You can use ```git stash``` to save the current work status,  fix that bug and go on with your work.
+When you find a bug that is obvious but small enough, like```cout<<"nama="<<endl;```, you may become crazy if you don't fix it before continuing your former work. You can use ```git stash``` to save the current work status,  fix that bug and go on with your work.
 ```
 $git stash "work in progress for foo feature"
 ```
