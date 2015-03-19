@@ -1,19 +1,5 @@
 # git-patch-and-rebase
 
-[Purpose](##purpose)
-
-[Patch](##Patch)
-* [What is patch](###What is patch)
-* [Create patch with git diff](###Create patch with git diff)
-* [Create patch with git format patch](###Create patch with git format patch)
-
-[Rebase](##Rebase)
-* [Inerteractive Rebasing -i](###Inerteractive Rebasing -i)
-* [Interactive Adding](###Interactive Adding)
-* [Stashing](###Stashing)
-* [Stashing Queue](Stashing Queue)
-
-
 ## Purpose
 This tutorial will show you
 * how to create a patch from your recent commits in your repository
