@@ -27,10 +27,10 @@ Now, let's start!
 
 ##Patch
 ###What is patch
-When a software or a system has a new version, we can download all the codes and install it.
-While huge projects like the Linux kernel can be over 70MB even after compressing. Meanwhile, 
-the new version of the code may change less than 1MB. Git has offered us such a powerful tool
-that we can update the projects under extreme low cost -- ```patch```.
+When a software or a system releases a new version, we can download all the code and then install it. 
+While huge projects like the Linux kernel can be over 70MB even after compressing. Meanwhile, the
+new version of the code may change less than 1MB compared with the previous version. Git has offered 
+us such a powerful tool that we can update the projects under extreme low cost -- ```patch```.
 
 ###Create patch with git diff
 First, let's clone a repo and make some change:
