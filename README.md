@@ -6,7 +6,6 @@
 * [What is patch](###What is patch)
 * [Create patch with git diff](###Create patch with git diff)
 * [Create patch with git format patch](###Create patch with git format patch)
-* [difference between git diff and git format patch](###difference between git diff and git format patch)
 
 [Rebase](##Rebase)
 * [Inerteractive Rebasing -i](###Inerteractive Rebasing -i)
@@ -153,7 +152,6 @@ One more line
 ```
 Attention, if there are several commits between master and fix, it will create patch file for every commit.
 
-###difference between git diff and git format patch
 ===
 
 ##Rebase
