@@ -4,7 +4,7 @@
 When a software or a system releases a new version, we can download all the code and then install it. 
 While huge projects like the Linux kernel can be over 70MB even after compressing. 
 Meanwhile, the new version of the code may change less than 1MB compared with the previous version. 
-Git has offered us such a powerful tool that we can update the projects under extremely low cost -- ```patch```.
+Git has offered us a powerful tool, ```patch```, that we can update the projects under extremely low cost.
 
 ###Create patch with git diff
 First, let's clone a repo and make some change:
@@ -330,7 +330,7 @@ just a reminder: it seems that SVN doesn't have that function.
 ####Stashing Queue
 You can stash many status.(Always fixing the bugs)
 
-Use this command you can check the stash list:
+With this command you can check the stash list:
 ```
 $ git stash list
 stash@{0}: WIP on book: 51bea1d... fixed images
