@@ -23,7 +23,7 @@ index 869ef75..fe8efa4 100644
 +Add a new line in README!!!
 ```
 The output of ```git diff``` is a typical patch file's content.
-We can redirect the output of command ```git diff```to a file named patch, and the file `patch` will work as a magic file to ```patch``` your repo as the following step:
+We can redirect the output of command ```git diff``` to a file named `patch`, and the file `patch` will work as a magic file to update your repo with the following steps:
 ```
 $ git commit -a -m "Add a new line"
 [fix_empty_README.md eb93f96] Add a new line
@@ -36,10 +36,10 @@ $ ls
 README.md patch
 ```
 
-Now we are at the branch ```master``` and get the file ```patch``` which contains the diff information.
-We'll use ```git apply``` to utilize this patch.
-In fact, we barely create a patch at the branch and apply it in another branch (you can simply ```merge``` it).
-Now we assume the branch ```fix_empty_README.md``` doesn't exist.
+Now we are at the branch `master` and get the file `patch` which contains the diff information.
+We'll use `git apply` to utilize this patch.
+In fact, we barely create a patch at the branch and apply it in another branch (you can simply `merge` it).
+Now we assume the branch `fix_empty_README.md` doesn't exist.
 Normally, we are supposed to create a branch to handle the branches which commit new patches:
 ```
 $ git checkout -b PATCH
@@ -49,7 +49,8 @@ $ git commit -a -m "Patch Apply"
 [PATCH 15695e4] Patch Apply
  1 file changed, 1 insertion(+)
 ```
-Now the ```patch``` has been applied to  the branch ```PATCH```, we can use ```git diff``` to check the differences between the branch of ```PATCH``` and ```fix_empty_README.md```, they will be absolutely same.
+Now `patch` has been applied to  the branch ```PATCH```.
+We can use `git diff` to check the difference between the branch of ```PATCH``` and ```fix_empty_README.md```, they will be absolutely same.
 
 
 ###Create patch with git format patch
@@ -70,7 +71,7 @@ $ git format-patch -M master
 0001-Add-a-new-line.patch
 0002-one-more-line.patch
 ```
-The option ```-M``` shows the branch to compare with, now there is two files for ```patch```, let's check it:
+The option ```-M``` shows the branch to be compared with, now there are two files for ```patch```, let's check them:
 ```
 $ cat 0001-Add-a-new-line.patch 
 From eb93f969ccc476a2a0050e9ee192216cf282da16 Mon Sep 17 00:00:00 2001
@@ -113,9 +114,9 @@ index fe8efa4..544f799 100644
 -- 
 1.9.3 (Apple Git-50)
 ```
-This time, more information is offered! We can tell when and who submitted it, etc.
+This time, more information is offered! We can tell when and who submitted these files, etc.
 
-For the patch created by ```git-format-patch```, we have to use ```am``` to apply it:
+For the `patch` created by `git-format-patch`, we have to use `am` to apply it:
 ```
 $ git checkout PATCH
 Switched to branch 'PATCH'
