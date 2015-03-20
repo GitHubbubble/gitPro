@@ -19,7 +19,8 @@ $ touch file
 $ git add file
 $ git commit -m "add file"
 ```
-On the same time your colleague has pulled two requests to origin branch, and you use `git pull` to make your master branch up-to-date. And the history will be like:
+On the same time your colleague has pulled two requests to origin branch, and you use `git pull` to make your master branch up-to-date. 
+And the history will be like:
 
 ![commit 1](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit1.png)
 
@@ -51,9 +52,10 @@ If the rebase process find a conflict, for example, you colleague's also modify 
 `$ git rebase --continue` or if we want to back to status before rebase, run `$ git rebase --abort`.
 
 ##Merge vs Rebase
-We have learned another way `merge` to integrate branches in `lab1-git` , and the way of `merge` to integrate is pushing a new `merge commit` and combine branches with all commits before `merge`. Here is an example:
+We have learned another way `merge` to integrate branches in `lab1-git` , and the way of `merge` to integrate is pushing a new `merge commit` and combine branches with all commits before `merge`. 
+Here is an example:
 
- We got a git history like this:
+We got a git history like this:
 
 ![commit 1](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit1.png)
 
@@ -61,12 +63,15 @@ and what `merge` does is creating a new merge commit `C2'` on `master` which doe
 
 ![commit 3 conflict](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit3conflict.png)
 
-Compared with `rebase`, `merge` would be a little bit messy for the `merge commits` everytime using `git merge`. So `rebase` will present a better history not only for the contributors but also for the future readers.
+Compared with `rebase`, `merge` would be a little bit messy for the `merge commits` everytime using `git merge`.
+So `rebase` will present a better history not only for the contributors but also for the future readers.
 
 ##Inerteractive Rebasing
-Under this mode, you could rewrite your commits before pull request. This is really important for a beginner in Github because if you mess up the history in repo forked from Mike, you had to delete your repo and fork again which cause a lot problem that may let you get a F in this course.
+Under this mode, you could rewrite your commits before pull request.
+This is really important for a beginner in Github because if you mess up the history in repo forked from Mike, you had to delete your repo and fork again which cause a lot problem that may let you get a F in this course.
 
-You can add `-i` after git rebase or `--interactive` to apply interactive mode to commit, it facilitates you to separate merge and re-order commit and remove commits that you have already pulled to your laptop. And the following information will display in our favoraite text editor as an example:(Do not use `:wq` in it before the test)
+You can add `-i` after git rebase or `--interactive` to apply interactive mode to commit, it facilitates you to separate merge and re-order commit and remove commits that you have already pulled to your laptop.
+And the following information will display in our favoraite text editor as an example:(Do not use `:wq` in it before the test)
 ```
 $ git clone https://github.com/Laviness/ucr-cs100.git 
 $ cd ucr-cs100/
@@ -132,7 +137,8 @@ reword db42315 added yliu127 info
 exec echo the interactive rebase success
 ```
 
-Now we have done the text part to modify the commits to what we intend to. Save and quit with command `:wq` (with `Esc` first to input `vim` command)
+Now we have done the text part to modify the commits to what we intend to.
+Save and quit with command `:wq` (with `Esc` first to input `vim` command)
 
 Next the interactive rebase will start :
 The interactive rebase will skip commands start with `pick` `ce9a29f` then to the `squash` on second line `9f27616` and open a new `vim` to edit the squash message:
@@ -161,8 +167,8 @@ added myself to class
 #
 ```
 
-This file is what Git tells you how it will `squash` the commits. And `"Enrolled in CS100"` tells you the message of 
-your first commit and `"added myself to class"` of the second commit, you can modify them as you wish.
+This file is what Git tells you how it will `squash` the commits.
+And `"Enrolled in CS100"` tells you the message of your first commit and `"added myself to class"` of the second commit, you can modify them as you wish.
 
 When you save and close the text editor, rebase continues:
 
@@ -192,7 +198,9 @@ Once you are satisfied with your changes, run
 	git rebase --continue
 ```
 
-And you could use `git commit --amend` to commit changes you've made. Then continue with `git rebase --continue`. It will reach `reword db42315` with opening a new text editor to let you know you are editing you message.
+And you could use `git commit --amend` to commit changes you've made.
+Then continue with `git rebase --continue`.
+It will reach `reword db42315` with opening a new text editor to let you know you are editing you message.
 
 ```
 added yliu127 info
@@ -207,7 +215,8 @@ added yliu127 info
 #
 ```
 
-Change the `"added yliu127 info"` to `"added yliu127"` and `:wq`. And the interactive rebase will run the command after `exec` and shows:
+Change the `"added yliu127 info"` to `"added yliu127"` and `:wq`.
+And the interactive rebase will run the command after `exec` and shows:
 
 ```
 Executing: echo the interactive rebase success
@@ -272,7 +281,8 @@ The commits have been changed successfully. To `push` your modified history to g
 $ git push https://github.com/Laviness/ucr-cs100.git --force
 ```
 
-since you have changed exist history on the server. But I only recommend you to do it **locally** with commits that don't exist on the server using `git push origin` because change exist history on the server will cause serious problem.
+since you have changed exist history on the server.
+But I only recommend you to do it **locally** with commits that don't exist on the server using `git push origin` because change exist history on the server will cause serious problem.
 
 ##The drawbacks of Rebasing
 Rebasing is great, but depends on how you use it.
