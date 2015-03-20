@@ -147,19 +147,21 @@ Assuming that we creat a branch `cs100` on your remote branch `master`:
 $ git init
 $ git checkout -b cs100 origin
 ```
+The commit history goes like this:
+
 ![commit 2](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit2.png)
 
-After switch to it we can make some change:
+After switch to `cs100` we can make some changes and commit them:
 ```
 $ touch file
 $ git add file
 $ git commit -m "add file"
 ```
-On the same time your colleague has pulled two requests to origin branch, which means the `master` and `cs100` will have conflict on each other.
+On the same time your colleague has pulled two requests to origin branch, and you use `git pull` to make your master branch up-to-date. And the history will be like:
 
 ![commit 1](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit1.png)
 
-You want to keep the commits on the `cs100` branch without merge, then you can use git rebase:
+If you want to keep all your commits only on the `cs100` branch, then you can use git rebase:(While `merge` will creat a merge commit and integrate all commits on `master` branch, I will compare them later):
 ```
 $ git checkout cs100
 $ git rebase master
@@ -167,13 +169,12 @@ First, rewinding head to replay your work on top of it...
 Applying: add file
 ```
 
-This command will save all your commits in `cs100` under a directory `.git/rebase` in patch format.
-When we updated origin to "already up-to-date" the patch will patch back to new `cs100` without leaving merge commits.
-The result would be like this:
+This command will save all your commits in `cs100` (in the example is `C2`) under a directory `.git/rebase` in patch format.
+And reapply them/it to the on the top of the branch to be rebased ( here is `C4`), the graph will be like:
 
 ![commit 4 rebase](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit4rebase.png)
 
-Or if you find a specific commit on master is you want to rebase on to the result of following command:
+Or if you find a specific commit on master that you want to rebase on to, the result of following command:
 ```
 $ git rebase --onto master~1 master
 ```
@@ -181,10 +182,10 @@ would be:
 
 ![commit 4 rebase onto](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit4rebaseonto.png)
 
-Once `cs100` point to a new commit, the old one will be through away.
-If you run `$ git gc`(garbage collection), they may be removed.
+Once `cs100` point to a new commit, the old patch (in the example is `C2` which have already been applied) will be through away.
+If you run `$ git gc`(garbage collection), they will be removed.
 
-If the rebase process find a conflict, after you fix the conflict, use git add and continue with
+If the rebase process find a conflict, for example, you colleague's also modify the file that you are working on, after you fix the conflict manually, use git add and continue with
 `$ git rebase --continue` or if we want to back to status before rebase, run `$ git rebase --abort`.
 
 ##Merge vs Rebase
