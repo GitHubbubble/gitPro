@@ -1,4 +1,4 @@
-# git-patch-and-rebase
+# git patch, rebase and stash
 
 ##Patch
 When a software or a system releases a new version, we can download all the code and then install it. 
@@ -132,23 +132,22 @@ Attention, if there are several commits between master and fix, it will create p
 
 #Rebasing
 
-##What is Rebasing
 The ```merge``` and the ```rebase``` are the most common ways to integrate from one branch into another in Git. This tutorial will focus on ```rebase``` since ```merge``` have been taught in lab1-git. And you will learn how to do it, why it is a pretty amazing tool and in what cases you won't want to use it.
 
 ##How to Rebase
-Assuming that we creat a branch 'cs100' on your remote branch 'master'.
+Assuming that we creat a branch `cs100` on your remote branch `master`.
 
 ```
-$git checkout -b cs100 origin
+$ git checkout -b cs100 origin
 ```
 ![commit 2](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit2.png)
 
 After switch to it we can make some change 
 
 ```
-$touch file
-$git add file
-$git commit -m "add file"
+$ touch file
+$ git add file
+$ git commit -m "add file"
 ```
 On the same time  your colleague have pulled two requests to origin branch ,which means the `master` and `cs100` will have conflict on each other. It is similiar to the 'Merge conflict' you have encountered in lab1.
 
@@ -159,8 +158,8 @@ But merge will creat a new merge commit on `master` which you don't want to comm
 
 You want to keep the commits on the `cs100` branch without merge, then you can use git rebase:
 ```
-$git checkout cs100
-$git rebase master
+$ git checkout cs100
+$ git rebase master
 First, rewinding head to replay your work on top of it...
 Applying: add file
 ```
@@ -179,10 +178,10 @@ would be:
 ![commit 4 rebase onto](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit4rebaseonto.png)
 
 Once `cs100` point to a new commit, the old one will be through away. If you run 
-`$git gc`(garbage collection), they may be removed.
+`$ git gc`(garbage collection), they may be removed.
 
 If the rebase process find a conflict, after you fix the conflict, use git add and continue with
-`$git rebase --continue` or if we want to back to status before rebase, run `$git rebase --abort`.
+`$ git rebase --continue` or if we want to back to status before rebase, run `$ git rebase --abort`.
 
 
 
@@ -192,7 +191,7 @@ It facilitates you to separate merge and re-order commit and remove commits that
 
 You can add `-i` after git rebase or `--interactive` to apply interactive mode to commit
 ```
-$git rebase -i origin/master
+$ git rebase -i origin/master
 
 pick fc62e55 added trash1
 pick 9824bf4 added trash2
@@ -314,13 +313,13 @@ You can stash many status.(Always fixing the bugs)
 
 Use this command you can check the stash list:
 ```
-$git stash list
+$ git stash list
 stash@{0}: WIP on book: 51bea1d... fixed images
 stash@{1}: WIP on master: 9705ae6... changed the browse code to the official repo
 ```
 You can also use this command to go back to the stash you want:
 ```
-$git stash apply stash@{1}
+$ git stash apply stash@{1}
 ```
 and clear stash with command ```git stash clear```.
 
