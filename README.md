@@ -190,20 +190,10 @@ would be:
 ![commit 4 rebase onto](image/commit4rebaseonto.png)
 
 Once 'cs100' point to a new commit, the old one will be through away. If you run 
-```
-$git gc
-```
-(garbage collection), they may be removed.
+`$git gc`(garbage collection), they may be removed.
 
 If the rebase process find a conflict, after you fix the conflict, use git add and continue with
-```
-$git rebase --continue
-```
-
-or if we want to back to status before rebase, run
-```
-$git rebase --abort
-```
+`$git rebase --continue` or if we want to back to status before rebase, run `$git rebase --abort`.
 
 
 
