@@ -251,7 +251,8 @@ If you follow our guideline, the repository will survive, otherwise you'll be cu
 
 When you rebase, you’re throwing away commits in `git log` and creating a similar but different new one. Assuming you have push some commits to the server which your colleagues' work based on, and you modified them with `git rebase` and push them to server again, your partners have to merge their work and the commits will get messy once you want to pull their work.
 
-Here is a successful example of destorying a repository by rebasing. Assuming you are pretending to work on a central server and you have fixed some bugs on your computer:(The upper commits are in server and the lower commits are locally)
+Here is a successful example of destorying a repository by rebasing. Assuming you are pretending to work on a central server and you have fixed some bugs on your computer:
+**(The upper commits are in server and the lower commits are locally)**
 
 ![rebase1](image/rebase1.png)
  
