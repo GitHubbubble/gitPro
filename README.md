@@ -23,7 +23,7 @@ index 869ef75..fe8efa4 100644
 +Add a new line in README!!!
 ```
 The output of ```git diff``` is a typical patch file, we can redirect the output of command ```git diff```
-to a file named patch, and the file patch will be a magic file to update your repo in the next step.
+to a file named patch, and the file patch will be a magic file to ```patch``` your repo in the next step.
 ```
 $ git commit -a -m "Add a new line"
 [fix_empty_README.md eb93f96] Add a new line
@@ -35,6 +35,7 @@ Your branch is up-to-date with 'origin/master'.
 $ ls
 README.md patch
 ```
+
 Now we are at the branch ```master``` and get the file ```patch``` which contains the diff information.
 We'll use ```git apply``` to utilize this patch.
 In fact, we barely create a patch at the branch and apply it in another branch (you can simply ```merge``` it).
