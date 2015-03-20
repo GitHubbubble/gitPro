@@ -147,10 +147,10 @@ Attention, if there are several commits between master and fix, it will create p
 The ```merge``` and the ```rebase``` are the most common ways to integrate from one branch into another in Git. This tutorial will focus on ```rebase``` since ```merge``` have been taught in lab1-git. And you will learn how to do it, why it is a pretty amazing tool and in what cases you won't want to use it.
 
 ##How to do Rebasing
-Assuming that we creat a branch 'mywork' on your remote branch 'master'.
+Assuming that we creat a branch 'cs100' on your remote branch 'master'.
 
 ```
-$git checkout -b mywork origin
+$git checkout -b cs100 origin
 ```
 
 After switch to it we can make some change 
@@ -161,17 +161,25 @@ $git add file
 $git commit -m "add file"
 ```
 
-On the same time  your colleague have pulled two requests to origin branch ,which means the 'master' and 'mywork'  will have conflict on each other. It is similiar to the 'Merge conflict' you have encountered in lab1.
+On the same time  your colleague have pulled two requests to origin branch ,which means the 'master' and 'cs100' will have conflict on each other. It is similiar to the 'Merge conflict' you have encountered in lab1.
 
-But merge will creat a new merge commit on 'master' which you don't want to commit. You want to keep the commits on the 'mywork' branch without merge, then you can use git rebase:
+But merge will creat a new merge commit on 'master' which you don't want to commit.  This image will remind what we learned in lab1.
+![alt text](https://raw.githubusercontent.com/mikeizbicki/ucr-cs100/2015winter/assignments/lab/lab1-git/images/11.png)
+
+You want to keep the commits on the 'cs100' branch without merge, then you can use git rebase:
 ```
-$git checkout mywork
-$git rebase origin
+$git checkout cs100
+$git rebase master
+First, rewinding head to replay your work on top of it...
+Applying: add file
 ```
+![alt text](http://www.processon.com/view/link/550b77eae4b0fc284407b0f4)
 
-This command will save all your commits in 'mywork' under a directory '.git/rebase' in patch format. When we updated origin to "already up-to-date" the patch will patch back to new 'mywork' without leaving merge commits.
+This command will save all your commits in 'cs100' under a directory '.git/rebase' in patch format. When we updated origin to "already up-to-date" the patch will patch back to new 'cs100' without leaving merge commits.
+The result would be like this:
 
-Once 'mywork' point to a new commit, the old one will be through away. If you run 
+
+Once 'cs100' point to a new commit, the old one will be through away. If you run 
 ```
 $git gc
 ```
