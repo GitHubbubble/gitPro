@@ -153,6 +153,7 @@ Assuming that we creat a branch 'cs100' on your remote branch 'master'.
 $git checkout -b cs100 origin
 ```
 ![commit 2](image/commit2.png)
+
 After switch to it we can make some change 
 
 ```
