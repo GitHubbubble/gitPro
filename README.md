@@ -332,7 +332,7 @@ $ cat a.cpp
 just a reminder: it seems that SVN doesn't have that function.
 
 
-#Stashing Queue
+####Stashing Queue
 You can stash many status.(Always fixing the bugs)
 
 Use this command you can check the stash list:
