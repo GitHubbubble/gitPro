@@ -243,18 +243,29 @@ Now you can change the action (which is 'pick' in default) to 'edit', 'squash' o
 
 
 ##The Perils of Rebasing
-Ahh, but the bliss of rebasing isn't without its drawbacks, which can be summed up in a single line:
+Rebasing is great, but depends on how you use it. It's not perfect, and will easily induce a lot problem with a few steps. Now we are teaching you how to **destory** other's repository like an expert. 
 
-**do not rebase commits that exist outside your repository.**
+**rebase commits that exist outside your repository.**
 
-If you follow our guideline, you'll be fine. If you don't, people will hate you, and you'll be scorned by friends and family.
+If you follow our guideline, the repository will survive, otherwise you'll be cursed by your colleagues and your boss will fire you.
 
-When you rebase stuff, you’re abandoning existing commits and creating new ones that are similar but different. If you push commits somewhere and others pull them down and base work on them, and then you rewrite those commits with```git rebase``` and push them up again, your collaborators will have to re-merge their work and things will get messy when you try to pull their work back into yours.
+When you rebase, you’re throwing away commits in `git log` and creating a similar but different new one. Assuming you have push some commits to the server which your colleagues' work based on, and you modified them with `git rebase` and push them to server again, your partners have to merge their work and the commits will get messy once you want to pull their work.
 
-Let’s look at an example of how rebasing work that you’ve made public can cause problems. Suppose you clone from a central server and then do some work off that. Your commit history looks like this:
+Here is a successful example of destorying a repository by rebasing. Assuming you are pretending to work on a central server and you have fixed some bugs on your computer:(The upper commits are in server and the lower commits are locally)
 
-![alt text](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/rebase1.png)
+![rebase1](image/rebase1.png)
+ 
+ Then someone pushes some commits without rebasing to the central server.
+ 
+ ![rebase2](image/rebase2.png)
+ 
+ He keeps waiting until you pull your commits to your computer and then use `git rebase` and `git push --force` to modify the commits to make them look clear and pushes the new commit to server.
+ 
+  ![rebase3](image/rebase3.png)
 
+Now you are in a pickle that if you use `git pull` to get stuff 'up-to-date', you will creat a merge commit which is exactly same as last commit. Further more, when you use `git push`, you will send commits those are not exist in others git log and creat more confusions.
+
+  ![rebase4](image/rebase4.png)
 
 #Stashing
 
