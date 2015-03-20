@@ -260,7 +260,7 @@ Here is a successful example of destorying a repository by rebasing. Assuming yo
  
  ![rebase2](image/rebase2.png)
  
- He keeps waiting until you pull your commits to your computer and then use `git rebase` and `git push --force` to modify the commits to make them look clear and pushes the new commit to server.
+ He keeps waiting until his pull your commits to your computer and then use `git rebase` and `git push --force` to modify the commits to make them look clear and pushes the new commit to server.
  
   ![rebase3](image/rebase3.png)
 
