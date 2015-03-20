@@ -138,13 +138,13 @@ Attention, if there are several commits between `master` and `fix`, it will crea
 
 #Rebasing
 
-The ```merge``` and the ```rebase``` are the most common ways to integrate from one branch into another in Git.
-This tutorial will focus on ```rebase``` since ```merge``` have been taught in lab1-git.
-And you will learn how to do it, why it is a pretty amazing tool and in what cases you won't want to use it.
+The `rebase` is one of  the most common ways to **integrate from one branch into another** in Git.
+This part will focus on `rebase` and you will learn how to do it, why it is a pretty amazing tool and in what cases you won't want to use it.
 
 ##How to Rebase
 Assuming that we creat a branch `cs100` on your remote branch `master`:
 ```
+$ git init
 $ git checkout -b cs100 origin
 ```
 ![commit 2](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit2.png)
@@ -156,12 +156,8 @@ $ git add file
 $ git commit -m "add file"
 ```
 On the same time your colleague has pulled two requests to origin branch, which means the `master` and `cs100` will have conflict on each other.
-It is similiar to the 'Merge conflict' you have encountered in lab1.
 
 ![commit 1](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit1.png)
-
-But merge will create a new merge commit on `master` which you don't want to commit.  
-![commit 3 conflict](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit3conflict.png)
 
 You want to keep the commits on the `cs100` branch without merge, then you can use git rebase:
 ```
@@ -191,7 +187,18 @@ If you run `$ git gc`(garbage collection), they may be removed.
 If the rebase process find a conflict, after you fix the conflict, use git add and continue with
 `$ git rebase --continue` or if we want to back to status before rebase, run `$ git rebase --abort`.
 
+##Merge vs Rebase
+We have learned another way `merge` to integrate branches in `lab1-git` , and the way of `merge` to integrate is pushing a new `merge commit` and combine branches. Here is an example:
 
+It is similiar to the 'Merge conflict' you have encountered in lab1. We got a git history like that:
+
+![commit 1](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit1.png)
+
+and what `merge` does is creating a new merge commit on `master` which you didn't really do in the history. `C2'` is a merge commit that doesn't actually include part of your work.
+
+![commit 3 conflict](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit3conflict.png)
+
+But `rebase` will remain the 
 
 ##Inerteractive Rebasing
 Under this mode, you could rewrite your commits before pull request.
