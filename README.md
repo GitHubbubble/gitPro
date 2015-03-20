@@ -35,7 +35,11 @@ Your branch is up-to-date with 'origin/master'.
 $ ls
 README.md patch
 ```
-Now we are at the branch ```master``` and get the file ```patch``` which contains the diff information. We'll use ```git apply``` to utilize this patch. In fact, we barely create a patch at the branch and apply it in another branch (you can simply ```merge``` it). Now we assume the branch ```fix_empty_README.md``` doesn't exist. Normally, we are supposed to create a branch to handle the branches which commit new patches.
+Now we are at the branch ```master``` and get the file ```patch``` which contains the diff information.
+We'll use ```git apply``` to utilize this patch.
+In fact, we barely create a patch at the branch and apply it in another branch (you can simply ```merge``` it).
+Now we assume the branch ```fix_empty_README.md``` doesn't exist.
+Normally, we are supposed to create a branch to handle the branches which commit new patches.
 ```
 $ git checkout -b PATCH
 Switched to a new branch 'PATCH'
@@ -65,7 +69,7 @@ $ git format-patch -M master
 0001-Add-a-new-line.patch
 0002-one-more-line.patch
 ```
-the option ```-M``` shows the branch to compare with, now there is two files for ```patch```, let's check it:
+The option ```-M``` shows the branch to compare with, now there is two files for ```patch```, let's check it:
 ```
 $ cat 0001-Add-a-new-line.patch 
 From eb93f969ccc476a2a0050e9ee192216cf282da16 Mon Sep 17 00:00:00 2001
@@ -125,14 +129,16 @@ $ cat README.md
 Add a new line in READMEgit checkout -b fix_empty_README.md!
 One more line
 ```
-Attention, if there are several commits between master and fix, it will create patch file for every commit.
+Attention, if there are several commits between `master` and `fix`, it will create patch files for every commit.
 
 
 
 
 #Rebasing
 
-The ```merge``` and the ```rebase``` are the most common ways to integrate from one branch into another in Git. This tutorial will focus on ```rebase``` since ```merge``` have been taught in lab1-git. And you will learn how to do it, why it is a pretty amazing tool and in what cases you won't want to use it.
+The ```merge``` and the ```rebase``` are the most common ways to integrate from one branch into another in Git.
+This tutorial will focus on ```rebase``` since ```merge``` have been taught in lab1-git.
+And you will learn how to do it, why it is a pretty amazing tool and in what cases you won't want to use it.
 
 ##How to Rebase
 Assuming that we creat a branch `cs100` on your remote branch `master`.
@@ -149,7 +155,8 @@ $ touch file
 $ git add file
 $ git commit -m "add file"
 ```
-On the same time your colleague has pulled two requests to origin branch ,which means the `master` and `cs100` will have conflict on each other. It is similiar to the 'Merge conflict' you have encountered in lab1.
+On the same time your colleague has pulled two requests to origin branch, which means the `master` and `cs100` will have conflict on each other.
+It is similiar to the 'Merge conflict' you have encountered in lab1.
 
 ![commit 1](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit1.png)
 
@@ -164,7 +171,8 @@ First, rewinding head to replay your work on top of it...
 Applying: add file
 ```
 
-This command will save all your commits in `cs100` under a directory `.git/rebase` in patch format. When we updated origin to "already up-to-date" the patch will patch back to new `cs100` without leaving merge commits.
+This command will save all your commits in `cs100` under a directory `.git/rebase` in patch format.
+When we updated origin to "already up-to-date" the patch will patch back to new `cs100` without leaving merge commits.
 The result would be like this:
 
 ![commit 4 rebase](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit4rebase.png)
@@ -177,8 +185,8 @@ would be:
 
 ![commit 4 rebase onto](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit4rebaseonto.png)
 
-Once `cs100` point to a new commit, the old one will be through away. If you run 
-`$ git gc`(garbage collection), they may be removed.
+Once `cs100` point to a new commit, the old one will be through away.
+If you run `$ git gc`(garbage collection), they may be removed.
 
 If the rebase process find a conflict, after you fix the conflict, use git add and continue with
 `$ git rebase --continue` or if we want to back to status before rebase, run `$ git rebase --abort`.
@@ -186,10 +194,11 @@ If the rebase process find a conflict, after you fix the conflict, use git add a
 
 
 ##Inerteractive Rebasing
-Under this mode, you could rewrite your commits before pull request.(If I know this before my first commits, I would not have messed up my commits and had to delete the repo and forked again.) 
+Under this mode, you could rewrite your commits before pull request.
+(If I know this before my first commits, I would not have messed up my commits and had to delete the repo and forked again.) 
 It facilitates you to separate merge and re-order commit and remove commits that you have already pulled to your laptop.
 
-You can add `-i` after git rebase or `--interactive` to apply interactive mode to commit
+You can add `-i` after git rebase or `--interactive` to apply interactive mode to commit:
 ```
 $ git rebase -i origin/master
 
@@ -214,33 +223,39 @@ That is to say, we have five commits and every one follow this format:
 [action][partial-sha][short commit message]
 ```
 
-Now you can change the action (which is `pick` in default) to `edit`, `squash` or delete the line that you don't want to push. When you quit the edit mode, git will apply the new commits.
+Now you can change the action (which is `pick` in default) to `edit`, `squash` or delete the line that you don't want to push.
+When you quit the edit mode, git will apply the new commits.
 
 
 
 ##The Perils of Rebasing
-Rebasing is great, but depends on how you use it. It's not perfect, and will easily induce a lot problem with a few steps. Now we are teaching you how to **destory** other's repository like an expert. 
+Rebasing is great, but depends on how you use it.
+It's not perfect, and will easily induce a lot problem with a few steps.
+Now we are teaching you how to **destory** other's repository like an expert. 
 
 **rebase commits that exist outside one's repository.**
 
 If you follow our guideline above, the repository will survive, otherwise you'll be cursed by your colleagues and your boss will fire you.
 
-When you rebase, you’re throwing away commits in `git log` and creating a similar but different new one. Assuming you have push some commits to the server which your colleagues' work based on, and you modified them with `git rebase` and push them to server again, your partners have to merge their work and the commits will get messy once you want to pull their work.
+When you rebase, you’re throwing away commits in `git log` and creating a similar but different new one.
+Assuming you have push some commits to the server which your colleagues' work based on, and you modified them with `git rebase` and push them to server again, your partners have to merge their work and the commits will get messy once you want to pull their work.
 
-Here is a successful example of destorying a repository by rebasing. Assuming you are pretending to work on a central server and you have fixed some bugs on your computer:
+Here is a successful example of destorying a repository by rebasing.
+Assuming you are pretending to work on a central server and you have fixed some bugs on your computer:
 **(The upper commits are in server and the lower commits are locally)**
 
 ![rebase1](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/rebase1.png)
  
- Then someone pushes some commits without rebasing to the central server.
+Then someone pushes some commits without rebasing to the central server.
  
  ![rebase2](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/rebase2.png)
  
- He keeps waiting until his pull your commits to your computer and then use `git rebase` and `git push --force` to modify the commits to make them look clear and pushes the new commit to server.
+He keeps waiting until his pull your commits to your computer and then use `git rebase` and `git push --force` to modify the commits to make them look clear and pushes the new commit to server.
  
   ![rebase3](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/rebase3.png)
 
-Now you are in a pickle that if you use `git pull` to get stuff 'up-to-date', you will creat a merge commit which is exactly same as last commit. Further more, when you use `git push`, you will send commits those are not exist in others git log and creat more confusions.
+Now you are in a pickle that if you use `git pull` to get stuff 'up-to-date', you will creat a merge commit which is exactly same as last commit.
+Further more, when you use `git push`, you will send commits those are not exist in others git log and creat more confusions.
 
   ![rebase4](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/rebase4.png)
 
