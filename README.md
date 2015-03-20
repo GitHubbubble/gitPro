@@ -270,8 +270,6 @@ Now you are in a pickle that if you use `git pull` to get stuff 'up-to-date', yo
 
 #Stashing
 
-When you find a bug that is obvious but small enough, like```cout<<"nama="<<endl;```, you may become crazy if you don't fix it before continuing your former work. You can use ```git stash``` to save the current work status,  fix that bug and go on with your work.
-
 Imagine this situation: you just made a commit for a.cpp and are half way developing b.cpp, but you suddenly realize that there is a small mistake in a.cpp.
 If you want to keep your work in b.cpp, you have to make a commit for b.cpp with half-way work and then back to a.cpp and fix the bug. If you back to fix the bug in a.cpp without making the commit for b.cpp, you'll lose all the work in b.cpp since the last commit. 
 
