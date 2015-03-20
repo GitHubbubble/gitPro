@@ -149,7 +149,7 @@ $ touch file
 $ git add file
 $ git commit -m "add file"
 ```
-On the same time  your colleague have pulled two requests to origin branch ,which means the `master` and `cs100` will have conflict on each other. It is similiar to the 'Merge conflict' you have encountered in lab1.
+On the same time your colleague has pulled two requests to origin branch ,which means the `master` and `cs100` will have conflict on each other. It is similiar to the 'Merge conflict' you have encountered in lab1.
 
 ![commit 1](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit1.png)
 
@@ -246,14 +246,19 @@ Now you are in a pickle that if you use `git pull` to get stuff 'up-to-date', yo
 
 #Stashing
 
-Imagine this situation: you just made a commit for a.cpp and are half way developing b.cpp, but you suddenly realize that there is a small mistake in a.cpp.
-If you want to keep your work in b.cpp, you have to make a commit for b.cpp with half-way work and then back to a.cpp and fix the bug. If you back to fix the bug in a.cpp without making the commit for b.cpp, you'll lose all the work in b.cpp since the last commit. 
+Imagine this situation: you just made a commit for `a.cpp` and are half way developing `b.cpp`, but you suddenly realize that there is a small mistake in `a.cpp`.
+If you want to keep your work in `b.cpp`, you have to make a commit for `b.cpp` with half-way work and then back to `a.cpp` and fix the bug. 
+If you back to fix the bug in `a.cpp` without making the commit for `b.cpp`, you'll lose all the work in `b.cpp` since the last commit. 
 
 Stashing is a way to solve this kind of problem -- fix the bug in previous commit without losing your recent work.
 
 Now let's try the stash command:
-Create a.cpp and b.cpp, make a commit for a.cpp and make some development in b.cpp after the commit.
+Create `a.cpp` and `b.cpp`, make a commit for `a.cpp` and make some development in `b.cpp` after the commit.
 ```
+$ mkdir test
+$ cd test
+$ git init
+Initialized empty Git repository in /Users/wangjinhang/Desktop/test/.git/
 $ touch a.cpp
 $ toch b.cpp
 $ vim a.cpp
@@ -278,7 +283,7 @@ $ git stash
 Saved working directory and index state WIP on master: df93074 helloworld a.cpp
 HEAD is now at df93074 helloworld a.cpp
 ```
-make some change(fix the bug in a.cpp) and commit it:
+make some change(fix the bug in `a.cpp`) and commit it:
 ```
 $ echo // a new line in a.cpp to test stash >> a.cpp
 $ cat a.cpp
@@ -294,7 +299,7 @@ Using ```git stash list``` to check your stash status:
 $ git stash list
 stash@{0}: WIP on master: cd3e990 helloworld a.cpp
 ```
-Back to the status which updates the develop in a.cpp and keeps the work in b.cpp by ```git stash apply```
+Back to the status which updates the develop in `a.cpp` and keeps the work in `b.cpp` by ```git stash apply```
 ```
 $git stash apply
 $ cat b.cpp
