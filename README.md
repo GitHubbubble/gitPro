@@ -238,7 +238,7 @@ pick 6a54209 Update README.md
 # Note that empty commits are commented out
 ```
 
-That is to say, we several commits and every one follow this format:
+That is to say, we have several commits and every one follow this format:
 ```
 [action][partial-sha][short commit message]
 ```
