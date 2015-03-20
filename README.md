@@ -160,7 +160,7 @@ It is similiar to the 'Merge conflict' you have encountered in lab1.
 
 ![commit 1](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit1.png)
 
-But merge will creat a new merge commit on `master` which you don't want to commit.  
+But merge will create a new merge commit on `master` which you don't want to commit.  
 ![commit 3 conflict](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit3conflict.png)
 
 You want to keep the commits on the `cs100` branch without merge, then you can use git rebase:
@@ -268,7 +268,7 @@ If you back to fix the bug in `a.cpp` without making the commit for `b.cpp`, you
 Stashing is a way to solve this kind of problem -- fix the bug in previous commit without losing your recent work.
 
 Now let's try the stash command:
-Create `a.cpp` and `b.cpp`, make a commit for `a.cpp` and make some development in `b.cpp` after the commit:
+create `a.cpp` and `b.cpp`, make a commit for `a.cpp` and make some development in `b.cpp` after the commit:
 ```
 $ mkdir test
 $ cd test
