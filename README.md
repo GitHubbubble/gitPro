@@ -152,7 +152,7 @@ Assuming that we creat a branch 'cs100' on your remote branch 'master'.
 ```
 $git checkout -b cs100 origin
 ```
-![commit 2]()
+![commit 2](image/commit2.png)
 After switch to it we can make some change 
 
 ```
@@ -160,11 +160,11 @@ $touch file
 $git add file
 $git commit -m "add file"
 ```
-![commit 1]()
+![commit 1](image/commit1.png)
 On the same time  your colleague have pulled two requests to origin branch ,which means the 'master' and 'cs100' will have conflict on each other. It is similiar to the 'Merge conflict' you have encountered in lab1.
 
 But merge will creat a new merge commit on 'master' which you don't want to commit.  
-![commit 3 conflict]()
+![commit 3 conflict](image/commit3conflict.png)
 
 You want to keep the commits on the 'cs100' branch without merge, then you can use git rebase:
 ```
@@ -176,14 +176,14 @@ Applying: add file
 
 This command will save all your commits in 'cs100' under a directory '.git/rebase' in patch format. When we updated origin to "already up-to-date" the patch will patch back to new 'cs100' without leaving merge commits.
 The result would be like this:
-![commit 4 rebase]()
+![commit 4 rebase](image/commit4rebase.png)
 
 Or if you find a specific commit on master is you want to rebase on to the result of following command:
 ```
 $ git rebase --onto master~1 master
 ```
 would be
-![commit 4 rebase onto]()
+![commit 4 rebase onto](image/commit4rebaseonto.png)
 
 Once 'cs100' point to a new commit, the old one will be through away. If you run 
 ```
