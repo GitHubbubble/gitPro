@@ -245,9 +245,9 @@ Now you can change the action (which is 'pick' in default) to 'edit', 'squash' o
 ##The Perils of Rebasing
 Rebasing is great, but depends on how you use it. It's not perfect, and will easily induce a lot problem with a few steps. Now we are teaching you how to **destory** other's repository like an expert. 
 
-**rebase commits that exist outside your repository.**
+**rebase commits that exist outside one's repository.**
 
-If you follow our guideline, the repository will survive, otherwise you'll be cursed by your colleagues and your boss will fire you.
+If you follow our guideline above, the repository will survive, otherwise you'll be cursed by your colleagues and your boss will fire you.
 
 When you rebase, you’re throwing away commits in `git log` and creating a similar but different new one. Assuming you have push some commits to the server which your colleagues' work based on, and you modified them with `git rebase` and push them to server again, your partners have to merge their work and the commits will get messy once you want to pull their work.
 
