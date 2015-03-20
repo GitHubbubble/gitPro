@@ -161,14 +161,14 @@ $touch file
 $git add file
 $git commit -m "add file"
 ```
-On the same time  your colleague have pulled two requests to origin branch ,which means the 'master' and 'cs100' will have conflict on each other. It is similiar to the 'Merge conflict' you have encountered in lab1.
+On the same time  your colleague have pulled two requests to origin branch ,which means the `master` and `cs100` will have conflict on each other. It is similiar to the 'Merge conflict' you have encountered in lab1.
 
 ![commit 1](image/commit1.png)
 
-But merge will creat a new merge commit on 'master' which you don't want to commit.  
+But merge will creat a new merge commit on `master` which you don't want to commit.  
 ![commit 3 conflict](image/commit3conflict.png)
 
-You want to keep the commits on the 'cs100' branch without merge, then you can use git rebase:
+You want to keep the commits on the `cs100` branch without merge, then you can use git rebase:
 ```
 $git checkout cs100
 $git rebase master
@@ -176,7 +176,7 @@ First, rewinding head to replay your work on top of it...
 Applying: add file
 ```
 
-This command will save all your commits in 'cs100' under a directory '.git/rebase' in patch format. When we updated origin to "already up-to-date" the patch will patch back to new 'cs100' without leaving merge commits.
+This command will save all your commits in `cs100` under a directory `.git/rebase` in patch format. When we updated origin to "already up-to-date" the patch will patch back to new `cs100` without leaving merge commits.
 The result would be like this:
 
 ![commit 4 rebase](image/commit4rebase.png)
@@ -189,7 +189,7 @@ would be:
 
 ![commit 4 rebase onto](image/commit4rebaseonto.png)
 
-Once 'cs100' point to a new commit, the old one will be through away. If you run 
+Once `cs100` point to a new commit, the old one will be through away. If you run 
 `$git gc`(garbage collection), they may be removed.
 
 If the rebase process find a conflict, after you fix the conflict, use git add and continue with
@@ -226,7 +226,7 @@ That is to say, we have five commits and every one follow this format:
 [action][partial-sha][short commit message]
 ```
 
-Now you can change the action (which is 'pick' in default) to 'edit', 'squash' or delete the line that you don't want to push. When you quit the edit mode, git will apply the new commits.
+Now you can change the action (which is `pick` in default) to `edit`, `squash` or delete the line that you don't want to push. When you quit the edit mode, git will apply the new commits.
 
 
 
