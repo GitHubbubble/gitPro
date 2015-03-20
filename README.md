@@ -1,4 +1,4 @@
-# git patch, rebase and stash
+# git patch, git rebase and git stash
 
 ##Patch
 When a software or a system releases a new version, we can download all the code and then install it. 
