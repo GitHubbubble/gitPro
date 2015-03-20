@@ -1,0 +1,46 @@
+xxxx
+Why is this here? Take it out.
+
+xxxx
+Remove this heading
+
+```` need double check!!!
+GAAAAA!!! You're STILL not following the markdown formatting instructions of #1028. Every sentence must be on its own line!
+
+```` need revise
+You should link to the patch command.
+
+#### ……
+Overall, this is a pretty good explanation. The one thing you're missing, though, is the motivation.
+
+You should explain that this is what's going on under the hood when you issue a pull request via github. Also, many larger projects like the Linux kernel don't use pull request on github. Instead, they require everyone to submit their patch files to the mailing list. I'm not entirely sure why they follow this workflow, but you should look up the reasons and incorporate them here.
+
+xxxx
+Remove this header
+
+####
+You never actually explained what rebase does or why it's different than merge
+
+xxxx
+should be backticks, not single quotes
+
+```` checked but please make a quick check again
+You need spaces after all the $s
+
+####
+You need to create a fresh git repo with git init so that all of these commands stand by themselves.
+
+####
+I don't understand your explanation.
+
+####
+You need more explanation about this.
+
+####
+You description of interactive rebasing is a bit too short and confusing. You should either remove it or expand it.
+
+xxxx
+Put filenames in backticks.
+
+xxxx
+You need to create a fresh git repo with git init so that all of these commands stand by themselves.
