@@ -27,7 +27,7 @@ You should explain that this is what's going on under the hood when you issue a 
 xxxx
 Remove this header
 
-####
+````
 You never actually explained what rebase does or why it's different than merge
 
 xxxx
@@ -36,16 +36,16 @@ should be backticks, not single quotes
 ```` checked but please make a quick check again
 You need spaces after all the $s
 
-####
+xxxx
 You need to create a fresh git repo with git init so that all of these commands stand by themselves.
 
-####
+````
 I don't understand your explanation.
 
-####
+````
 You need more explanation about this.
 
-####
+````
 You description of interactive rebasing is a bit too short and confusing. You should either remove it or expand it.
 
 xxxx
