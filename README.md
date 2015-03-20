@@ -253,7 +253,7 @@ When you rebase stuff, you’re abandoning existing commits and creating new one
 
 Let’s look at an example of how rebasing work that you’ve made public can cause problems. Suppose you clone from a central server and then do some work off that. Your commit history looks like this:
 
-![alt text](http://git-scm.com/book/en/v2/book/03-git-branching/images/perils-of-rebasing-1.png)
+![alt text](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/rebase1.png)
 
 
 #Stashing
