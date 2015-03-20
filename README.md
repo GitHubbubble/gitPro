@@ -1,4 +1,4 @@
-# -patch-and-rebase
+# git-patch-and-rebase
 
 ## Purpose
 This tutorial will show you
