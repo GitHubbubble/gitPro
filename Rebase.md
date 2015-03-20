@@ -272,7 +272,7 @@ The commits have been changed successfully. To `push` your modified history to g
 $ git push https://github.com/Laviness/ucr-cs100.git --force
 ```
 
-since you have changed exist history on the server. But I only recommend you to do that locally with commits that don't exist on the server using `git push origin` because change exist history on the server will cause serious problem.
+since you have changed exist history on the server. But I only recommend you to do it **locally** with commits that don't exist on the server using `git push origin` because change exist history on the server will cause serious problem.
 
 ##The drawbacks of Rebasing
 Rebasing is great, but depends on how you use it.
