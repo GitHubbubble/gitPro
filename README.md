@@ -197,11 +197,11 @@ If the rebase process find a conflict, after you fix the conflict, use git add a
 
 
 
-##Inerteractive Rebasing -i
+##Inerteractive Rebasing
 Under this mode, you could rewrite your commits before pull request.(If I know this before my first commits, I would not have messed up my commits and had to delete the repo and forked again.) 
 It facilitates you to separate merge and re-order commit and remove commits that you have already pulled to your laptop.
 
-You can add '-i' after git rebase or '--interactive' to apply interactive mode to commit
+You can add `-i` after git rebase or `--interactive` to apply interactive mode to commit
 ```
 $git rebase -i origin/master
 
