@@ -146,7 +146,7 @@ Attention, if there are several commits between master and fix, it will create p
 ##What is Rebasing
 The ```merge``` and the ```rebase``` are the most common ways to integrate from one branch into another in Git. This tutorial will focus on ```rebase``` since ```merge``` have been taught in lab1-git. And you will learn how to do it, why it is a pretty amazing tool and in what cases you won't want to use it.
 
-##How to do Rebasing
+##How to Rebase
 Assuming that we creat a branch 'cs100' on your remote branch 'master'.
 
 ```
