@@ -161,9 +161,9 @@ $touch file
 $git add file
 $git commit -m "add file"
 ```
-![commit 1](image/commit1.png)
-
 On the same time  your colleague have pulled two requests to origin branch ,which means the 'master' and 'cs100' will have conflict on each other. It is similiar to the 'Merge conflict' you have encountered in lab1.
+
+![commit 1](image/commit1.png)
 
 But merge will creat a new merge commit on 'master' which you don't want to commit.  
 ![commit 3 conflict](image/commit3conflict.png)
