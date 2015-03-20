@@ -228,7 +228,7 @@ When you quit the edit mode, git will apply the new commits.
 
 
 
-##The Perils of Rebasing
+##The drawbacks of Rebasing
 Rebasing is great, but depends on how you use it.
 It's not perfect, and will easily induce a lot problem with a few steps.
 Now we are teaching you how to **destory** other's repository like an expert. 
