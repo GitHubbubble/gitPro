@@ -210,10 +210,7 @@ It facilitates you to separate merge and re-order commit and remove commits that
 You can add '-i' after git rebase or '--interactive' to apply interactive mode to commit
 ```
 $git rebase -i origin/master
-```
 
-Once you run the command, you will turn to edit mode :
-```
 pick fc62e55 added file_size
 pick 9824bf4 fixed little thing
 pick 21d80a5 added number to log
