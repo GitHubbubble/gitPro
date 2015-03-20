@@ -162,6 +162,7 @@ $git add file
 $git commit -m "add file"
 ```
 ![commit 1](image/commit1.png)
+
 On the same time  your colleague have pulled two requests to origin branch ,which means the 'master' and 'cs100' will have conflict on each other. It is similiar to the 'Merge conflict' you have encountered in lab1.
 
 But merge will creat a new merge commit on 'master' which you don't want to commit.  
@@ -183,7 +184,8 @@ Or if you find a specific commit on master is you want to rebase on to the resul
 ```
 $ git rebase --onto master~1 master
 ```
-would be
+would be:
+
 ![commit 4 rebase onto](image/commit4rebaseonto.png)
 
 Once 'cs100' point to a new commit, the old one will be through away. If you run 
