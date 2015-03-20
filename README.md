@@ -178,6 +178,7 @@ Applying: add file
 
 This command will save all your commits in 'cs100' under a directory '.git/rebase' in patch format. When we updated origin to "already up-to-date" the patch will patch back to new 'cs100' without leaving merge commits.
 The result would be like this:
+
 ![commit 4 rebase](image/commit4rebase.png)
 
 Or if you find a specific commit on master is you want to rebase on to the result of following command:
