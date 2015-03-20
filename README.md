@@ -4,7 +4,7 @@
 When a software or a system releases a new version, we can download all the code and then install it. 
 While huge projects like the Linux kernel can be over 70MB even after compressing. 
 Meanwhile, the new version of the code may change less than 1MB compared with the previous version. 
-Git has offered us such a powerful tool that we can update the projects under extreme low cost -- ```patch```.
+Git has offered us such a powerful tool that we can update the projects under extremely low cost -- ```patch```.
 
 ###Create patch with git diff
 First, let's clone a repo and make some change:
@@ -22,8 +22,8 @@ index 869ef75..fe8efa4 100644
  # example-repo
 +Add a new line in README!!!
 ```
-The output of ```git diff``` is a typical patch file, we can redirect the output of command ```git diff```
-to a file named patch, and the file patch will be a magic file to ```patch``` your repo in the next step.
+The output of ```git diff``` is a typical patch file's content.
+We can redirect the output of command ```git diff```to a file named patch, and the file `patch` will be a magic file to ```patch``` your repo in the next step.
 ```
 $ git commit -a -m "Add a new line"
 [fix_empty_README.md eb93f96] Add a new line
