@@ -23,7 +23,7 @@ index 869ef75..fe8efa4 100644
 +Add a new line in README!!!
 ```
 The output of ```git diff``` is a typical patch file's content.
-We can redirect the output of command ```git diff```to a file named patch, and the file `patch` will be a magic file to ```patch``` your repo in the next step.
+We can redirect the output of command ```git diff```to a file named patch, and the file `patch` will work as a magic file to ```patch``` your repo as the following step:
 ```
 $ git commit -a -m "Add a new line"
 [fix_empty_README.md eb93f96] Add a new line
@@ -40,7 +40,7 @@ Now we are at the branch ```master``` and get the file ```patch``` which contain
 We'll use ```git apply``` to utilize this patch.
 In fact, we barely create a patch at the branch and apply it in another branch (you can simply ```merge``` it).
 Now we assume the branch ```fix_empty_README.md``` doesn't exist.
-Normally, we are supposed to create a branch to handle the branches which commit new patches.
+Normally, we are supposed to create a branch to handle the branches which commit new patches:
 ```
 $ git checkout -b PATCH
 Switched to a new branch 'PATCH'
@@ -115,7 +115,7 @@ index fe8efa4..544f799 100644
 ```
 This time, more information is offered! We can tell when and who submitted it, etc.
 
-For the patch created by ```git-format-patch```, we have to use ```am``` to apply it.
+For the patch created by ```git-format-patch```, we have to use ```am``` to apply it:
 ```
 $ git checkout PATCH
 Switched to branch 'PATCH'
@@ -142,15 +142,13 @@ This tutorial will focus on ```rebase``` since ```merge``` have been taught in l
 And you will learn how to do it, why it is a pretty amazing tool and in what cases you won't want to use it.
 
 ##How to Rebase
-Assuming that we creat a branch `cs100` on your remote branch `master`.
-
+Assuming that we creat a branch `cs100` on your remote branch `master`:
 ```
 $ git checkout -b cs100 origin
 ```
 ![commit 2](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit2.png)
 
-After switch to it we can make some change 
-
+After switch to it we can make some change:
 ```
 $ touch file
 $ git add file
@@ -269,7 +267,7 @@ If you back to fix the bug in `a.cpp` without making the commit for `b.cpp`, you
 Stashing is a way to solve this kind of problem -- fix the bug in previous commit without losing your recent work.
 
 Now let's try the stash command:
-Create `a.cpp` and `b.cpp`, make a commit for `a.cpp` and make some development in `b.cpp` after the commit.
+Create `a.cpp` and `b.cpp`, make a commit for `a.cpp` and make some development in `b.cpp` after the commit:
 ```
 $ mkdir test
 $ cd test
