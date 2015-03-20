@@ -215,11 +215,9 @@ You can add '-i' after git rebase or '--interactive' to apply interactive mode t
 ```
 $git rebase -i origin/master
 
-pick fc62e55 added file_size
-pick 9824bf4 fixed little thing
-pick 21d80a5 added number to log
-pick 76b9da6 added the apply command
-pick c264051 Revert "added file_size" - not implemented correctly
+pick fc62e55 added trash1
+pick 9824bf4 added trash2
+pick 21d80a5 added file
 
 # Rebase f408319..b04dc3d onto f408319
 #
