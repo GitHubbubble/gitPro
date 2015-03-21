@@ -1,7 +1,7 @@
 #Rebasing
 
 The `rebase` is one of  the most common ways to **integrate from one branch into another** in Git.
-This part will focus on `rebase` and you will learn how to do it, why it is a pretty amazing tool and in what cases you won't want to use it.
+This part will focus on `rebase` and you will learn how to do it, why it is a pretty amazing tool and in what kind of cases you won't want to use it.
 
 ##How to Rebase
 Assuming that we creat a branch `cs100` on your remote branch `master`:
@@ -24,7 +24,8 @@ And the history will be like:
 
 ![commit 1](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit1.png)
 
-If you want to keep all your commits **only** on the `cs100` branch, then you can use git rebase:(While `merge` will creat a merge commit and integrate all commits on `master` branch, I will compare them later):
+If you want to keep all your commits **only** on the `cs100` branch, then you can use git rebase
+(While `merge` will creat a merge commit and integrate all commits on `master` branch, I will compare them later):
 ```
 $ git checkout cs100
 $ git rebase master
@@ -37,25 +38,20 @@ And reapply them/it to the on the top of the branch to be rebased ( here is `C4`
 
 ![commit 4 rebase](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit4rebase.png)
 
-Or if you want to temporarliy rebase on to a commit on `master` but not at the end,  using `--onto [branch name]~[number after the commit where branches apart] [dst branch]` as an option for `git rebase`, the result of following command:
-```
-$ git rebase --onto master~1 master
-```
-would be:
+Or if you want to temporarily rebase on to a commit on `master` but not at the end,  using `--onto [branch name]~[number after the commit where branches apart] [dst branch]` as an option for `git rebase`, the result of command `$ git rebase --onto master~1 master` would be:
 
 ![commit 4 rebase onto](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit4rebaseonto.png)
 
-Once `cs100` point to a new commit, for instance, you commit another change after `C2`, the old patch (in the example is `C2` which have already been applied) will be through away.
+Once `cs100` point to a new commit, for instance, you commit another change after `C2`, the old patch (in the example is `C2` which have already been applied) will be thrown away.
 If you run `$ git gc`(garbage collection), the old patch will also be removed.
 
-If the rebase process find a conflict, for example, you colleague's also modify the file that you are working on, after you fix the conflict manually, use git add and continue with
-`$ git rebase --continue` or if we want to back to status before rebase, run `$ git rebase --abort`.
+If the rebase process find a conflict, for example, you colleague's also developing the file that you are working on, after you fix the conflict manually, use git add and continue with `$ git rebase --continue` or if we want to back to status before rebase, run `$ git rebase --abort`.
 
 ##Merge vs Rebase
 We have learned another way `merge` to integrate branches in `lab1-git` , and the way of `merge` to integrate is pushing a new `merge commit` and combine branches with all commits before `merge`. 
 Here is an example:
 
-We got a git history like this:
+We get a git history like this:
 
 ![commit 1](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit1.png)
 
