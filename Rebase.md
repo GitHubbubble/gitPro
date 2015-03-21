@@ -66,8 +66,9 @@ So `rebase` will present a better history not only for the contributors but also
 Under this mode, you could rewrite your commits before pull request.
 This is really important for a beginner in Github because if you mess up the history in repo forked from Mike, you had to delete your repo and fork again which cause a lot problem that may let you get a F in this course.
 
-You can add `-i` after git rebase or `--interactive` to apply interactive mode to commit, it facilitates you to separate merge and re-order commit and remove commits that you have already pulled to your laptop.
-And the following information will display in our favoraite text editor as an example:(Do not use `:wq` in it before the test)
+You can add `-i` after `git rebase` or `--interactive` to apply interactive mode to commit, it facilitates you to separate merge and re-order commit and remove commits that you have already pulled to your laptop.
+And the following information will display in our favoraite text editor as an example:
+(Do not use `:wq` in it before the test)
 ```
 $ git clone https://github.com/Laviness/ucr-cs100.git 
 $ cd ucr-cs100/
@@ -101,7 +102,7 @@ pick 6a54209 Update README.md
 # Note that empty commits are commented out
 ```
 
-That is to say, we have several commits and every one follow this format:
+That is to say, we have several commits and every one follow format like:
 ```
 [action][partial-sha][short commit message]
 ```
@@ -117,7 +118,7 @@ Merge the `"Corrected spelling errors in Lab0"` commit `2dcfbe6` into the `"Reve
 Split the third commit `bffd586` into two smaller commits, using `edit`.
 Fix the commit message of the misspelled commit `db42315`, using `reword`.
 
-It looks like a lot work but by spilting them up step by step, it will be much easier.
+It looks like huge work but by doing them step by step, it will be much easier.
 
 First we modify the text in the file like this:
 
@@ -167,7 +168,6 @@ This file is what Git tells you how it will `squash` the commits.
 And `"Enrolled in CS100"` tells you the message of your first commit and `"added myself to class"` of the second commit, you can modify them as you wish.
 
 When you save and close the text editor, rebase continues:
-
 ```
 pick ce9a29f Enrolled in CS100
 squash 9f27616 added myself to class
