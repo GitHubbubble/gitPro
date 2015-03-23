@@ -25,7 +25,8 @@ The history will be like:
 ![commit 1](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit1.png)
 
 If you want to keep all of your commits **only** on the `cs100` branch, then you can use git rebase
-(Using `merge` will create a merge commit and integrate all commits on the `master` branch. I will compare them later):
+(Using `merge` will create a merge commit and integrate all commits on the `master` branch.
+I will compare them later):
 ```
 $ git checkout cs100
 $ git rebase master
@@ -34,21 +35,25 @@ Applying: add file
 ```
 
 This command will save all of your commits in `cs100` (in the example it is `C2`) under a directory `.git/rebase` in patch format.
-Rebase will then reapply them to the top of the branch to be rebased ( here it is `C4`). The graph will be like:
+Rebase will then reapply them to the top of the branch to be rebased ( here it is `C4`).
+The graph will be like:
 
 ![commit 4 rebase](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit4rebase.png)
 
-However, if you want to temporarily rebase on to a commit on `master` but not at the end, you can use `--onto [branch name]~[number after the commit where branches apart] [dst branch]` as an option for `git rebase`. The result of the command `$ git rebase --onto master~1 master` would be:
+However, if you want to temporarily rebase on to a commit on `master` but not at the end, you can use `--onto [branch name]~[number after the commit where branches apart] [dst branch]` as an option for `git rebase`. 
+The result of the command `$ git rebase --onto master~1 master` would be:
 
 ![commit 4 rebase onto](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit4rebaseonto.png)
 
 Once `cs100` points to a new commit, for instance, you commit another change after `C2`, the old patch file (in the example is `C2` which have already been applied) will be thrown away.
 If you run `$ git gc`(garbage collection), the old patch file will also be removed.
 
-If the rebase process finds a conflict, for example, your colleague's also developing on the file that you are working on, then after you fix the conflict manually, use `$ git add` and continue with `$ git rebase --continue`. However, if we want to go back to the status before the rebase, run `$ git rebase --abort`.
+If the rebase process finds a conflict, for example, your colleague's also developing on the file that you are working on, then after you fix the conflict manually, use `$ git add` and continue with `$ git rebase --continue`.
+However, if we want to go back to the status before the rebase, run `$ git rebase --abort`.
 
 ##Merge vs Rebase
-Previously, we have learned how to `merge` and integrate branches in `lab1-git`. How `merge` works to integrate is by pushing a new `merge commit` and then combine branches with all commits before `merge`. 
+Previously, we have learned how to `merge` and integrate branches in `lab1-git`.
+How `merge` works to integrate is by pushing a new `merge commit` and then combine branches with all commits before `merge`. 
 Here is an example:
 
 We get a git history like this:
@@ -66,7 +71,8 @@ Therefore, `rebase` will present a better history, not only for the contributors
 Under this mode, you can rewrite your commits before the pull request.
 This is really important for a beginner in Github because, if you mess up the history in the repo forked from Mike, you will have to delete your repo and fork again which can cause a lot problems that can get a F in this course.
 
-You can add `-i` after `git rebase` or `--interactive` to apply interactive mode to commit. It facilitates you in separating merge and in re-ordering commits and removing commits that you have already pulled to your laptop.
+You can add `-i` after `git rebase` or `--interactive` to apply interactive mode to commit.
+It facilitates you in separating merge and in re-ordering commits and removing commits that you have already pulled to your laptop.
 The following information will display in our favorite text editor as an example:
 (Do not use `:wq` in it before the test)
 ```
@@ -165,7 +171,8 @@ added myself to class
 ```
 
 This file is where Git tells you how it will `squash` the commits.
-`"Enrolled in CS100"` tells you the message of your first commit and `"added myself to class"` of the second commit. You can modify them as you wish.
+`"Enrolled in CS100"` tells you the message of your first commit and `"added myself to class"` of the second commit.
+You can modify them as you wish.
 
 When you save and close the text editor, rebase continues:
 ```
@@ -293,7 +300,7 @@ When you rebase, you’re throwing away commits in `git log` and creating a simi
 Assuming you have pushed some commits to the server which your colleagues' works are based on, you modified them with `git rebase`, and pushed them to the server again, your partners will have to merge their work and the commits will get messy once you want to pull their work.
 
 Here is a successful example of destroying a repository by rebasing.
-Assume you are pretending to work on a central server and you have fixed some bugs on your computer:
+Assume you are working on a central server and you have fixed some bugs on your computer:
 **(The upper commits are in the server and the lower commits are local)**
 
 ![rebase1](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/rebase1.png)
