@@ -1,10 +1,10 @@
 #Rebasing
 
 The `rebase` is one of  the most common ways to **integrate from one branch into another** in Git.
-This part will focus on `rebase` and you will learn how to do it, why it is a pretty amazing tool and in what kind of cases you won't want to use it.
+This part will focus on `rebase` and you will learn how to use it, why it is a pretty amazing tool and what kinds of cases you won't want to use it in.
 
 ##How to Rebase
-Assuming that we creat a branch `cs100` on your remote branch `master`:
+Assuming that we create a branch `cs100` on your remote branch `master`:
 ```
 $ git init
 $ git checkout -b cs100 origin
@@ -13,7 +13,7 @@ The commit history goes like this:
 
 ![commit 2](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit2.png)
 
-After switch to `cs100` we can make some changes and commit them:
+After we switch to `cs100`, we can make some changes and commit them:
 ```
 $ touch file
 $ git add file
